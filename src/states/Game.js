@@ -14,7 +14,6 @@ export default class extends Phaser.State {
     }
 
     create() {
-        this.scoreText = this.game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});
         //  We're going to be using physics, so enable the Arcade Physics system
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -61,6 +60,10 @@ export default class extends Phaser.State {
         this.stars.enableBody = true;
     
         this.renderStar();
+
+
+        //score
+        this.scoreText = this.game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});        
         
         //This populates the cursors object with four properties: up, down, left, right
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -115,7 +118,7 @@ export default class extends Phaser.State {
 
         //  Add and update the score
         this.score += 10;
-        this.scoreText.text = 'Score: ' + this.core;
+        this.scoreText.text = 'Score: ' + this.score;
         
         this.skilledStars += 1;
 
